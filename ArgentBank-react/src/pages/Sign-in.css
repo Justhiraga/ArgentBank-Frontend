@@ -6,6 +6,10 @@
   flex: 1;
 }
 
+.singout-hidden {
+  display: none;
+}
+
 .sign-in-button {
   display: block;
   width: 100%;
