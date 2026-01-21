@@ -3,18 +3,21 @@ import Logo from '../atoms/logo.jsx'
 import logoImg from '../../assets/img/argentBankLogo.png'
 
 
+import { NavLink } from "react-router";
+
+
 export default function Header() {
     return (
         <nav className="main-nav">
-            <a className="main-nav-logo main-nav-logo-image">
+            <NavLink to="/" className="main-nav-logo main-nav-logo-image">
                 <Logo img={logoImg}/>
                 <h1 className="sr-only">Argent Bank</h1>
-            </a>
+            </NavLink>
             <div>
-                <a href="#" className="main-nav-item">
+                <NavLink to="/sign-in" className="main-nav-item">
                     <i className="fa fa-user-circle"></i>
                     Sign In
-                </a>
+                </NavLink>
             </div>
         </nav>
     );
