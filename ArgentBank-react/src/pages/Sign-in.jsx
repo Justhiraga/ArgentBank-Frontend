@@ -15,7 +15,6 @@ function SignIn() {
                 <i className="fa fa-user-circle"></i>
                 <h1>Sign In</h1>
                 <Form />
-                <NavLink to="/user" className="sign-in-button">Sign In</NavLink>
             </section>
         </main> 
      <Footer />  

@@ -3,16 +3,20 @@ import Home from './pages/Home.jsx'
 import SignIn from './pages/Sign-in.jsx'
 import User from './pages/User.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router'
+import { Provider } from 'react-redux'
+import store from './store/store'
 import './index.css'
 
 
 const root = document.getElementById("root");
 ReactDOM.createRoot(root).render(
-  <BrowserRouter>
-    <Routes>
-      <Route index element={<Home />} />
-      <Route path="/sign-in" element={<SignIn />} />
-      <Route path="/user" element={<User />} />
-    </Routes>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/user" element={<User />} />
+      </Routes>
+    </BrowserRouter>
+  </Provider>
 );
