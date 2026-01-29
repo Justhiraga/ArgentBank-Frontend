@@ -1,6 +1,7 @@
 import './header.css'
 import Logo from '../atoms/logo.jsx'
 import logoImg from '../../assets/img/argentBankLogo.png'
+import LogoutBtn from '../atoms/logoutBtn.jsx';
 
 
 import { NavLink } from "react-router";
@@ -18,10 +19,7 @@ export default function Header( {active}) {
                     <i className="fa fa-user-circle"></i>
                     Sign In
                 </NavLink>
-                <NavLink to="/" className={active ? "main-nav-item" : "singout-hidden"}>
-                    <i className="fa fa-sign-out"></i>
-                    Sign Out
-                </NavLink>
+                <LogoutBtn/>
             </div>
         </nav>
     );

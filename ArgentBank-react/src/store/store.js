@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userSlice from './reducers/userReducer/userReducer.js'
+import { succesFullLoginMiddleware } from './reducers/succesLoginMiddleware.js'
 
 const store = configureStore({
     reducer: {
@@ -8,6 +9,8 @@ const store = configureStore({
     middleware: (getDefaultMiddleware) =>
     [
         ...getDefaultMiddleware(),
+        succesFullLoginMiddleware,
+        
     ],
 })
 
