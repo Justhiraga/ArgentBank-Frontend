@@ -10,6 +10,7 @@ import { authStatusSelector } from '../store/reducers/userReducer/userReducer.js
 function User() {
   const isLoggedIn = useSelector(authStatusSelector);
   const [showForm, setShowForm] = useState(false);
+  const userName = useSelector((state) => state.user.userProfile?.userName);
 
   const handleEditClick = () => {
     setShowForm(true);
@@ -19,18 +20,24 @@ function User() {
     setShowForm(false);
   };
 
+  const handleSubmitClick = () => {
+    setShowForm(false);
+  };
+
   return (
     <>
       <title>Argent Bank - User Page</title>
-      <Header active={"main-nav-item"} />
+      <Header active="user" userName={userName} />
       <main className="main bg-dark">
         <div className="header">
-          <h1>Welcome back<br />Tony Jarvis!</h1>
+          {!isLoggedIn ? null : ( 
+          <h1>Welcome back<br />{userName}</h1>
+          )}
           {showForm ? null : (
           <button className="edit-button" onClick={handleEditClick}>Edit Name</button>
           )}
           {showForm && (
-            <UserForm onClose={handleCloseForm} />
+            <UserForm onClose={handleCloseForm} onSubmit={handleSubmitClick} />
           )}
         </div>
         <h2 className="sr-only">Accounts</h2>

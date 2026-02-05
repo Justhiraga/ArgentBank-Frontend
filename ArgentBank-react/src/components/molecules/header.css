@@ -25,6 +25,11 @@
   color: #2c3e50;
 }
 
+.main-nav span {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
 .main-nav a.router-link-exact-active {
   color: #42b983;
 }
