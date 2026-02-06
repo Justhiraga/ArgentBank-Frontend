@@ -1,18 +1,12 @@
-import { Link } from "react-router";
-import { onLogout } from "../../store/reducers/userReducer/userAction"
-import { useDispatch } from "react-redux";
+import { NavLink } from "react-router";
 
 
 const LogoutBtn = () =>{
-    const dispatch = useDispatch()
-    const handleLougout = () => {
-        dispatch(onLogout())
-    }
     return (
         <>
-        <Link to="/" onClick={handleLougout}>
+        <NavLink to="/">
             Sing-out
-        </Link>
+        </NavLink>
         </>
     ) 
 }

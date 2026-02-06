@@ -1,24 +1,10 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
-import { authStatusSelector } from '../store/reducers/userReducer/userReducer.js';
 import Header from '../components/molecules/header.jsx';
 import Footer from '../components/molecules/footer.jsx';
 import Form from '../components/organismes/form.jsx';
 import './Sign-in.css';
 
 function SignIn() {
-  const navigate = useNavigate();
-  const isLoggedIn = useSelector(authStatusSelector);
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate('/user');
-    }
-  }, [isLoggedIn, navigate]);
-
-  if (!isLoggedIn) {
-    return (
+  return (
       <>
         <title>Argent Bank - Sign In Page</title>
         <Header />
@@ -32,9 +18,6 @@ function SignIn() {
         <Footer />
       </>
     );
-  }
-
-  return null;
 }
 
 export default SignIn;
