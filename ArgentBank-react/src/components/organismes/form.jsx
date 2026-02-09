@@ -1,17 +1,31 @@
-import { NavLink } from "react-router";
 import Input from '../molecules/input.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { errorSelector } from '../../store/reducers/userReducer.js';
+import { onSubmit } from '../../store/actions/userActions.js';
+import { useNavigate } from 'react-router';
 
 
 export default function Form() {
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const fetchError = useSelector(errorSelector);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(onSubmit(event.target.username.value, event.target.password.value, navigate));
+    }
+
+
 
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <Input />
-            <NavLink to="/user" className="sign-in-button">Sign In</NavLink>
-            <p> 
-                <a href="#">Forgot my password</a>
+            <button type="submit" className="sign-in-button">Sign In</button>
+            <p>{fetchError
+                ? 'identifiants incorect'
+                : ''}
             </p>
         </form>
     );
