@@ -4,7 +4,9 @@ import './userForm.css'
 
 
 
-export default function UserForm() {
+export default function UserForm( { onSubmit, onCancel } ) {
+
+
   return (
     <form className="editForm">
       <div className="editFormInput">
@@ -12,36 +14,35 @@ export default function UserForm() {
           <label htmlFor="userName">User Name:</label>
           <input
             type="text"
-            //value={"1"}
-            // onChange={""}
+            //value={""}
+            //onChange={""}
             placeholder={""}
             id='username'
+            readOnly
           />
         </div>
         <div className='labelinput'>
           <label htmlFor="firstname">First Name:</label>
           <input
-             type="text"
-              //value={"2"}
-              //onChange={""}
-              placeholder={""}
-              id='firstname'
+            type="text"
+            placeholder={""}
+            id='firstname'
+            readOnly
           />
         </div>
         <div className='labelinput'>
           <label htmlFor="lastname">Last Name:</label>
           <input
-             type="text"
-              //value={"3"}
-              //onChange={""}
-              placeholder={""}
-              id='lastname'
+            type="text"
+            placeholder={""}
+            id='lastname'
+            readOnly
           />
         </div>
       </div>
       <div className="editFormbutton">
-        <button type="submit" >Save</button>
-        <button type="cancel" >Cancel</button>
+        <button type="submit">Save</button>
+        <button type="cancel">Cancel</button>
       </div>
     </form>
   );

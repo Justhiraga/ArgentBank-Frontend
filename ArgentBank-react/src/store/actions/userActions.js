@@ -1,5 +1,4 @@
-import { userLoginSuccess } from "../reducers/userReducer";
-import { userLoginFailure } from "../reducers/userReducer";
+import { userLoginSuccess, userLoginFailure, userLogOut, userInfoPorfile, userInfoError } from "../reducers/userReducer";
 
 export const onSubmit = (CredentialEmail, CredentialPassword, navigate) => {
     return async (dispatch) => {
@@ -28,8 +27,32 @@ export const onSubmit = (CredentialEmail, CredentialPassword, navigate) => {
     }
 };
 
-export const onLogout = () => {
+export const userInfo = (token) => {
     return async (dispatch) => {
-        dispatch(userLoginFailure());
+        await fetch("http://localhost:3001/api/v1/user/profile", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`,
+            }
+        }).then((response) => {
+            if (!response.ok) {
+                throw new Error('erreur lors de la requete');
+            }
+            return response.json();
+
+        }).then((data) => {
+            const user = data.body;
+            dispatch(userInfoPorfile(user));
+
+        }).catch(() => {
+            dispatch((userInfoError()));
+        });
     }
+}
+
+export const onLogout = (dispatch) => {
+
+    dispatch(userLogOut);
+
 };

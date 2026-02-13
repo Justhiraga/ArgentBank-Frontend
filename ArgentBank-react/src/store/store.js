@@ -8,7 +8,7 @@ const store = configureStore({
     },
     middleware: (getDefaultMiddleware) =>
     [
-        ...getDefaultMiddleware(),    
+        ...getDefaultMiddleware(),
     ],
 })
 

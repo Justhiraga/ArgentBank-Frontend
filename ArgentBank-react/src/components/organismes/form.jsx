@@ -11,8 +11,8 @@ export default function Form() {
     const navigate = useNavigate();
     const fetchError = useSelector(errorSelector);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
         dispatch(onSubmit(event.target.username.value, event.target.password.value, navigate));
     }
 

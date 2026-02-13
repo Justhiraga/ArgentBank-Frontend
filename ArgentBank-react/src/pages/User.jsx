@@ -4,6 +4,13 @@ import Footer from '../components/molecules/footer.jsx';
 import Account from '../components/organismes/account.jsx';
 import UserForm from '../components/organismes/userForm.jsx';
 
+
+
+
+
+
+
+
 function User() {
   return (
     <>

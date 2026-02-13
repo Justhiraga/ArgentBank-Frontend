@@ -18,16 +18,26 @@ export const userSlice = createSlice({
             state.token = null;
             state.isLogged = false;
             state.error = true;
-        }
+        },
+        userLogOut: (state) => {
+            state.token = null;
+            state.isLogged = false;
+            state.error = false;
+        },
     }
 });
 
 export const {  
                 userLoginSuccess, 
-                userLoginFailure
+                userLoginFailure,
+                userLogOut,
+                userInfoPorfile,
+                userInfoError,
              } = userSlice.actions;
 
 export const errorSelector = (state) => state.user.error;
+
+export const userNameSelector = (state) => state.user.userProfile.userName;
 
 export const logStatutsSelector = (state) => state.user.isLogged;
 
