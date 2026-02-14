@@ -24,6 +24,14 @@ export const userSlice = createSlice({
             state.isLogged = false;
             state.error = false;
         },
+        userInfoPorfile: (state, action) => {
+            state.userProfile = action.payload;
+            state.error = false;
+        },
+        userInfoError: (state) => {
+            state.userProfile = null;
+            state.error = true;
+        },
     }
 });
 
