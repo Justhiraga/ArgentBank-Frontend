@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { logStatutsSelector } from '../store/reducers/userSlice';
+import { useNavigate } from 'react-router';
 import Header from '../components/molecules/header.jsx';
 import Footer from '../components/molecules/footer.jsx';
 import Account from '../components/organismes/account.jsx';
@@ -9,7 +12,18 @@ import './user.css';
 
 function User() {
 
+  const navigate = useNavigate();
+  const isLogged = useSelector(logStatutsSelector);
+  const userName = useSelector((state) => state.user.userProfile?.userName);
+
   const [showForm, setShowForm] = useState(false);
+
+
+  useEffect(() => {
+    if (!isLogged) {
+      navigate('/sign-in');
+    }
+  }, [isLogged, navigate]);  
 
   const openForm = () => {
     setShowForm(true);
@@ -25,10 +39,10 @@ function User() {
   return (
     <>
       <title>Argent Bank - User Page</title>
-      <Header/>
+      <Header userName={userName}/>
       <main className="main bg-dark">
-        <div className="header"> 
-          <h1>Welcome back<br /> Tony Stark </h1>
+        <div className="header">
+          <h1>Welcome back<br /> {userName} </h1>
           {showForm ? null :(
           <button className="edit-button" onClick={openForm}>Edit Name</button>
           )}

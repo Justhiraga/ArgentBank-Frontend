@@ -40,7 +40,7 @@ export const { loginSuccess, loginFailure , userLogOut, userProfile, userProfile
 
 export const logStatutsSelector = (state) => state.user.isLogged
 
-export const userNameSelector = (state) => state.user.userProfile.userName
+
 
 export const errorSelector = (state) => state.user.error
 

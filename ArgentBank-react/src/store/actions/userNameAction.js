@@ -1,14 +1,17 @@
 import { userProfile, userProfileError } from '../reducers/userSlice'
 
-export const userInfo = (token) => {
+export const userNameChange = (token, CredentialUserName) => {
 
     return async (dispatch) => {
         await fetch("http://localhost:3001/api/v1/user/profile", {
-            method: "GET",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
-            }
+            },
+            body: JSON.stringify({
+                userName: CredentialUserName,
+            })
         }).then((response) => {
             if (!response.ok) {
                 throw new Error('erreur lors de la requete');
@@ -22,5 +25,6 @@ export const userInfo = (token) => {
         }).catch(() => {
             dispatch(userProfileError());
         });
-    }
-}
+    };            
+};
+    
