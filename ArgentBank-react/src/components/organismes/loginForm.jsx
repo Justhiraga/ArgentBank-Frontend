@@ -1,11 +1,11 @@
 import Input from '../molecules/input.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { errorSelector } from '../../store/reducers/userReducer.js';
-import { onSubmit } from '../../store/actions/userActions.js';
+import { errorSelector } from '../../store/reducers/userSlice.js';
+import { onSubmitLogin } from '../../store/actions/loginAction.js';
 import { useNavigate } from 'react-router';
 
 
-export default function Form() {
+export default function LoginForm() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -13,13 +13,10 @@ export default function Form() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(onSubmit(event.target.username.value, event.target.password.value, navigate));
+        dispatch(onSubmitLogin(event.target.username.value, event.target.password.value, navigate));
     }
 
-
-
-
-    return (
+  return (
         <form onSubmit={handleSubmit}>
             <Input />
             <button type="submit" className="sign-in-button">Sign In</button>

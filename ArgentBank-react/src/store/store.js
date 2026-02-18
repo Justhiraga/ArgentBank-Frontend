@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import userReducer from '../store/reducers/userReducer'
-import { userInfoMiddleware } from '../store/reducers/userInfoMiddleware'
+import { userInfoMiddleware } from './middleware/userInfoMiddleware'
+import userReducer from './reducers/userSlice'
 
 
 const store = configureStore({
     reducer: {
         user: userReducer
     },
-    middleware: (getDefaultMiddleware) =>
+     middleware: (getDefaultMiddleware) =>
     [
         ...getDefaultMiddleware(),
         userInfoMiddleware,

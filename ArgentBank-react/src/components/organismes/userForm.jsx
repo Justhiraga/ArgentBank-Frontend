@@ -1,29 +1,22 @@
-import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { userInfoPorfile } from '../../store/reducers/userReducer.js';
 import './userForm.css'
+import { userProfile } from '../../store/reducers/userSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 
-
-
-
-export default function UserForm( {onClose} ) {
+export default function UserInfoForm() {
 
   const dispatch = useDispatch();
   const userProfile = useSelector((state) => state.user.userProfile);
 
   const [userName, setUserName] = useState(userProfile.userName);
 
-  const handleUserNameChange = (event) => {
+  const handleChange = (event) => {
     setUserName(event.target.value);
   };
 
-  const handleSubmit = () =>{
-    dispatch(userInfoPorfile(
-      userProfile.userName
-    ));
-    onClose();
-  }
+  
+
 
   return (
     <form className="editForm">
@@ -33,7 +26,7 @@ export default function UserForm( {onClose} ) {
           <input
             type="text"
             value={userName}
-            onChange={handleUserNameChange}
+            onChange={handleChange}
             placeholder={userProfile.userName}
             id='username'
           />
@@ -41,25 +34,23 @@ export default function UserForm( {onClose} ) {
         <div className='labelinput'>
           <label htmlFor="firstname">First Name:</label>
           <input
-            type="text"
-            placeholder={userProfile.firstName}
-            id='firstname'
-            readOnly
+             type="text"
+              placeholder={userProfile.firstName}
+              id='firstname'
           />
         </div>
         <div className='labelinput'>
           <label htmlFor="lastname">Last Name:</label>
           <input
-            type="text"
-            placeholder={userProfile.lastName}
-            id='lastname'
-            readOnly
+             type="text"
+              placeholder={userProfile.lastName}
+              id='lastname'
           />
         </div>
       </div>
       <div className="editFormbutton">
         <button type="submit" >Save</button>
-        <button type="cancel" onClick={onClose}>Cancel</button>
+        <button type="cancel" >Cancel</button>
       </div>
     </form>
   );

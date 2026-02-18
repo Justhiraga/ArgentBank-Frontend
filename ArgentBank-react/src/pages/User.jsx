@@ -1,53 +1,41 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { logStatutsSelector } from '../store/reducers/userReducer.js';
-
-import './user.css';
 import Header from '../components/molecules/header.jsx';
 import Footer from '../components/molecules/footer.jsx';
 import Account from '../components/organismes/account.jsx';
-import UserForm from '../components/organismes/userForm.jsx';
-
-
-
-
-
+import UserInfoForm from '../components/organismes/userForm.jsx';
+import './user.css';
 
 
 
 function User() {
 
-  const isLogged = useSelector(logStatutsSelector);
-  const userProfile = useSelector((state) => state.user.userProfile);
-  const userName = useState(userProfile.userName);
-
   const [showForm, setShowForm] = useState(false);
 
-  const handleEditClick = () => {
+  const openForm = () => {
     setShowForm(true);
   };
 
-  const handleCloseClick = () => {
+  const closeForm = () => {
     setShowForm(false);
   };
+
 
 
 
   return (
     <>
       <title>Argent Bank - User Page</title>
-      <Header />
+      <Header/>
       <main className="main bg-dark">
         <div className="header"> 
-          {!isLogged ? null :(
-            <h1>Welcome back<br /> {userName} </h1>
-          )}
+          <h1>Welcome back<br /> Tony Stark </h1>
           {showForm ? null :(
-            <button className="edit-button" onClick={handleEditClick}>Edit Name</button>
+          <button className="edit-button" onClick={openForm}>Edit Name</button>
           )}
           {showForm && (
-            <UserForm onClose={handleCloseClick} />
+            <UserInfoForm closeForm={closeForm} />
           )}
+          
         </div>
         <h2 className="sr-only">Accounts</h2>
         <Account title="Argent Bank Checking (x8349)" amount="$2,082.79" description="Available Balance" />

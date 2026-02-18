@@ -1,10 +1,10 @@
 import Header from '../components/molecules/header.jsx';
 import Footer from '../components/molecules/footer.jsx';
-import Form from '../components/organismes/form.jsx';
+import LoginForm from '../components/organismes/loginForm.jsx';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { logStatutsSelector } from '../store/reducers/userReducer';
+import { logStatutsSelector } from '../store/reducers/userSlice';
 import './Sign-in.css';
 
 function SignIn() {
@@ -28,7 +28,7 @@ if(!isLogged){
           <section className="sign-in-content">
             <i className="fa fa-user-circle"></i>
             <h1>Sign In</h1>
-            <Form />
+            <LoginForm />
           </section>
         </main>
         <Footer />
