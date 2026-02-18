@@ -8,6 +8,8 @@ export default function UserInfoForm() {
 
   const dispatch = useDispatch();
   const userProfile = useSelector((state) => state.user.userProfile);
+  const token = useSelector((state) => state.user.token);
+
 
   const [userName, setUserName] = useState(userProfile?.userName || '');
 
@@ -19,9 +21,7 @@ export default function UserInfoForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(userNameChange({
-      userName: userName,
-    }));
+    dispatch(userNameChange( token, userName ));
   };
   
 
