@@ -18,10 +18,10 @@ function Header( {userName} ) {
       </NavLink>
       <div>
         {isLogged ? (
-          <span className="main-nav-item">
+          <NavLink to="/user" className="main-nav-item">
             <i className="fa fa-user-circle"></i>
             {userName}
-          </span>
+          </NavLink>
         ) : (
           <NavLink to="/sign-in" className="main-nav-item">
             <i className="fa fa-user-circle"></i>
