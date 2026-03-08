@@ -1,6 +1,6 @@
 import './header.css'
 import Logo from '../atoms/logo.jsx'
-import logoImg from '../../assets/img/argentBankLogo.png'
+import logoImg from '../../assets/img/argentBankLogo_11zon.webp';
 import LogoutBtn from '../atoms/logoutBtn.jsx';
 import { NavLink } from "react-router";
 import { useSelector } from 'react-redux';

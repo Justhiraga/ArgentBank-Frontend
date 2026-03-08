@@ -4,7 +4,7 @@ export default function FeatureItem() {
         <>
             <div className="feature-item">
                 <img
-                    src="/src/assets/img/icon-chat.png"
+                    src="/src/assets/img/icon-chat_11zon.webp"
                     alt="Chat Icon"
                     className="feature-icon"
                 />
@@ -16,7 +16,7 @@ export default function FeatureItem() {
             </div>
             <div className="feature-item">
                 <img
-                    src="/src/assets/img/icon-money.png"
+                    src="/src/assets/img/icon-money_11zon.webp"
                     alt="Money Icon"
                     className="feature-icon"
                 />
@@ -27,7 +27,7 @@ export default function FeatureItem() {
             </div>
             <div className="feature-item">
                 <img
-                    src="/src/assets/img/icon-security.png"
+                    src="/src/assets/img/icon-security_11zon.webp"
                     alt="Security Icon"
                     className="feature-icon"
                 />

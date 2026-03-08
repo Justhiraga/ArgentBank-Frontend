@@ -10,10 +10,6 @@ export default function Input() {
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" />
             </div>
-            <div className="input-remember">
-                <input type="checkbox" id="remember-me" />
-                <label htmlFor="remember-me">Remember me</label>
-            </div> 
         </>
     );
 }
