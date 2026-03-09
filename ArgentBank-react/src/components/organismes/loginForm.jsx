@@ -13,7 +13,7 @@ export default function LoginForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(onSubmitLogin(event.target.username.value, event.target.password.value, navigate));
+        dispatch(onSubmitLogin(event.target.Email.value, event.target.password.value, navigate));
     }
 
   return (

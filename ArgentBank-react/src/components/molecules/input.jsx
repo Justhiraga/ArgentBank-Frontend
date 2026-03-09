@@ -3,8 +3,8 @@ export default function Input() {
     return (
         <>
             <div className="input-wrapper">
-                <label htmlFor="username">Username</label>
-                <input type="text" id="username" />
+                <label htmlFor="Email">Email</label>
+                <input type="text" id="Email" />
             </div>
             <div className="input-wrapper">
                 <label htmlFor="password">Password</label>
